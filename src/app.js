@@ -5,6 +5,9 @@ import { setUpKindeAuth } from "./auth/kindeAuthSetup.js";
 import bodyParser from "body-parser";
 import { ApiError } from "./utils/ApiError.js";
 const app = express();
+app.get("/", (req, res) => {
+    res.send("hello from deployed app");
+});
 setUpKindeAuth(app);
 
 app.use(
@@ -33,9 +36,7 @@ app.use("/api/v1/auth", userRouter);
 app.use("/api/v1/users", recommendationRouter);
 app.use("/api/v1/teams", teamRouter);
 
-app.get("/", (req, res) => {
-    res.send("hello from deployed app");
-});
+
 
 
 // Global error-handling middleware
