@@ -30,6 +30,7 @@ export const getUserProfile = asyncHandler(async (req, res) => {
             academicYear: record.get("academicYear"),
             interests: record.get("interests"),
             skills: record.get("skills"),
+            id: user.kindeAuthId,
         };
         const mongoData = await User.findOne({ kindeAuthId: kindeAuthId });
 

@@ -9,9 +9,11 @@ const setUpSocket = (server) => {
     const io = new Server(server, {
         cors: {
             origin: [
-                'http://localhost:3000', // for local testing
+                '*',
+                'http://localhost:3000', 
+                'https://c511-103-171-118-138.ngrok-free.app/',
                 'https://collab-socketio-frontend.vercel.app' // live frontend
-            ], // Allow requests from the frontend
+            ], 
             methods: ["GET", "POST"], // Allowed HTTP methods
             credentials: true,
             // Allow cookies if needed
